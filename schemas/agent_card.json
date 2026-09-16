@@ -1,0 +1,15 @@
+{
+  "schema_version": "SB-1.0",
+  "subject_type": "agent",
+  "agent_card_id": "ac_0001",
+  "name": "example-agent",
+  "capabilities": [
+    "a2a_connect",
+    "code_review"
+  ],
+  "endpoint": "https://example.com/.well-known/agent-card.json",
+  "permission_boundary": "仅接受已确权通道消息",
+  "verify_state": "verified",
+  "index_status": "submitted_pending_merge",
+  "protocol_version": "SB-1.0"
+}

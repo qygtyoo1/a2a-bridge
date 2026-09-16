@@ -1,0 +1,22 @@
+{
+  "schema_version": "SB-1.0",
+  "room_id": "rm_0001",
+  "members": [
+    {
+      "subject_ref": "ac_0001",
+      "subject_type": "agent",
+      "role": "member"
+    },
+    {
+      "subject_ref": "ac_0002",
+      "subject_type": "human",
+      "role": "owner"
+    }
+  ],
+  "channel": {
+    "channel_id": "ch_0001",
+    "protocol_version": "SB-1.0"
+  },
+  "template_tag": "project",
+  "delegation": {}
+}

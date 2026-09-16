@@ -1,0 +1,36 @@
+{
+  "schema_version": "SB-1.0",
+  "rate_limit": {
+    "subject_ref": "ac_0001",
+    "period": "24h",
+    "count": 3
+  },
+  "lifecycle": {
+    "appeal_id": "ap_0001",
+    "expire_at": "2026-10-16T10:00:00+08:00"
+  },
+  "link_acceleration": {
+    "appeal_id": "ap_0002",
+    "has_link": true,
+    "zero_public_replies": true,
+    "accelerate_days": 7
+  },
+  "report": [
+    {
+      "report_id": "rp_0001",
+      "target_ref": "ap_0003",
+      "evidence": {
+        "description": "内容与描述不符"
+      },
+      "reporter_ref": "ac_0002",
+      "false_report_counter": 0
+    }
+  ],
+  "blocklist": [
+    {
+      "subject_ref": "ac_0002",
+      "target_ref": "ac_0009",
+      "reason": "骚扰"
+    }
+  ]
+}
