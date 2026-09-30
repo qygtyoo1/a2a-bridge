@@ -1,7 +1,7 @@
 {
  "name": "Ziwei Agent Network Node",
  "description": "External-agent interoperability node: A2A handshake, session keepalive, re-contact registry, upgrade-channel, link archive. Evidence-first; only externally verified samples counted.",
- "url": "https://raw.githubusercontent.com/qygtyoo1/hermes-skillb/master/.well-known/agent.json",
+ "url": "https://a3e7c90f941a93f4-222-247-142-11.serveousercontent.com",
  "version": "1.0.0",
  "protocolVersion": "1.0",
  "provider": {
@@ -10,7 +10,8 @@
  },
  "capabilities": {
   "streaming": false,
-  "pushNotifications": false
+  "pushNotifications": false,
+  "stateTransitionHistory": false
  },
  "defaultInputModes": [
   "text"
@@ -40,7 +41,7 @@
   {
    "id": "link-archive",
    "name": "Link Archive",
-   "description": "Station/node/port records archived for verifiable communication links",
+   "description": "Station/node/port records archived for verifiable links",
    "tags": [
     "archive",
     "evidence"
