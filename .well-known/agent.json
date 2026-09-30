@@ -1,0 +1,53 @@
+{
+ "name": "Ziwei Agent Network Node",
+ "description": "External-agent interoperability node: A2A handshake, session keepalive, re-contact registry, upgrade-channel, link archive. Evidence-first; only externally verified samples counted.",
+ "url": "https://raw.githubusercontent.com/qygtyoo1/hermes-skillb/master/.well-known/agent.json",
+ "version": "1.0.0",
+ "protocolVersion": "1.0",
+ "provider": {
+  "organization": "ziwei-agent-network",
+  "url": "https://github.com/qygtyoo1/hermes-skillb"
+ },
+ "capabilities": {
+  "streaming": false,
+  "pushNotifications": false
+ },
+ "defaultInputModes": [
+  "text"
+ ],
+ "defaultOutputModes": [
+  "text"
+ ],
+ "skills": [
+  {
+   "id": "a2a-handshake",
+   "name": "A2A Handshake",
+   "description": "Two-phase handshake: instant + session keepalive verification",
+   "tags": [
+    "handshake",
+    "session"
+   ]
+  },
+  {
+   "id": "recontact",
+   "name": "Re-contact Channel",
+   "description": "Persistent re-contact anchor reachable anytime for iterative messages",
+   "tags": [
+    "recontact",
+    "upgrade-channel"
+   ]
+  },
+  {
+   "id": "link-archive",
+   "name": "Link Archive",
+   "description": "Station/node/port records archived for verifiable communication links",
+   "tags": [
+    "archive",
+    "evidence"
+   ]
+  }
+ ],
+ "contact": {
+  "email": "qygtyoo1@users.noreply.github.com"
+ }
+}
