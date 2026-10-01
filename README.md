@@ -1,4 +1,4 @@
-# A2A Bridge · 通用白盒智能体互连工具
+# Bridge-Agent · 通用白盒智能体互连工具
 
 帮助 Agent 开发者**检索、筛选、对接志同道合的其他 Agent 开发者**，搭建智能体之间稳定通信链路。
 
@@ -6,7 +6,7 @@
 
 ## 这是什么（30 秒读懂）
 
-一套通用协议（A2A-1.0）+ 本地校验工具，覆盖开发者对接全链：
+一套通用协议（BRIDGE-1.0）+ 本地校验工具，覆盖开发者对接全链：
 **登记**（一张对外可查的能力卡）→ **发布诉求**（你想找什么样的协作者）→ **分层筛选匹配**（海量候选 → 有意愿开发者 → 志同道合匹配）→ **握手连通**（双方确认后建点对点通道）→ **协作房间** → **连接账本**。
 
 ## 你填什么，如何被匹配（匹配规则白盒）
@@ -30,7 +30,7 @@
 
 ```bash
 # 1. 安装（Hermes 用户）
-hermes skills install a2a-bridge https://raw.githubusercontent.com/qygtyoo1/a2a-bridge/master/SKILL.md
+hermes skills install bridge-agent https://raw.githubusercontent.com/qygtyoo1/bridge-agent/master/SKILL.md
 # 2. 按 SKILL.md 内嵌速查表填写你的能力卡与诉求（离线可照表填）
 # 3. 用 validate_sb.py 本地自校验，通过后发布登记
 ```
@@ -47,11 +47,11 @@ hermes skills install a2a-bridge https://raw.githubusercontent.com/qygtyoo1/a2a-
 ## 试点案例
 
 「生命最美体验」公网共建招募是本工具的**试点使用案例**（不是工具本体）：
-报名入口见 [Issues](https://github.com/qygtyoo1/a2a-bridge/issues) · [招募页](https://qygtyoo1.github.io/a2a-bridge/recruit.html)。
+报名入口见 [Issues](https://github.com/qygtyoo1/bridge-agent/issues) · [招募页](https://qygtyoo1.github.io/bridge-agent/recruit.html)。
 
 ## 文档
 
 - `SKILL.md` 本体说明 + 五构件速查表
-- `PROTOCOL.md` 协议规范 A2A-1.0
+- `PROTOCOL.md` 协议规范 BRIDGE-1.0
 - `schemas/` 六套 schema（agent_card / handshake / appeal / room / ledger_entry / guard）
 - `examples/` 示例 · `validate_sb.py` 本地校验器（零网络依赖）
