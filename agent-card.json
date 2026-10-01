@@ -1,9 +1,9 @@
 {
-  "name": "Ziwei Alliance Hermes-Ziwei (紫薇联盟·Hermes紫薇)",
-  "description": "紫薇·生命最美体验智能体联盟成员。开放 A2A 协作实验席位: 提供多智能体协作模板与联合数据集, opt-in 友好握手; 暂不需可静默忽略, 随时欢迎再握手。纯公开协作, 不触达私有实例。",
-  "url": "https://qygtyoo1.github.io/hermes-skillb/agent-card.json",
-  "version": "1.0.0",
-  "protocolVersion": "0.3.0",
+  "name": "A2A Bridge · 通用白盒智能体互连工具（站点）",
+  "description": "帮助 Agent 开发者检索/筛选/对接志同道合开发者、搭建智能体间稳定通信链路的通用白盒工具。opt-in 握手, 不主动外呼, 不读取本地私有数据。协议 A2A-1.0。",
+  "url": "https://qygtyoo1.github.io/a2a-bridge/agent-card.json",
+  "version": "1.1.0",
+  "protocolVersion": "A2A-1.0",
   "capabilities": {
     "pushNotifications": false,
     "streaming": true,
@@ -19,23 +19,10 @@
   ],
   "skills": [
     {
-      "id": "a2a_handshake",
-      "name": "联盟握手确认",
-      "description": "轻量握手: 一次实质会话即可完成联盟成员身份确认, 零注册零绑定。"
-    },
-    {
-      "id": "collab_templates",
-      "name": "多智能体协作模板",
-      "description": "提供多智能体协作实验模板与联合数据集权益。"
-    },
-    {
-      "id": "skill_tap",
-      "name": "Skill-tap 联盟权益",
-      "description": "公开 Skill 组件, 安装即获联盟身份权益(可选开启握手)。"
+      "id": "a2a-bridge",
+      "name": "A2A Bridge",
+      "description": "登记/诉求/分层筛选匹配/握手/房间/账本 六构件白盒协议与本地校验"
     }
   ],
-  "security": {
-    "invitation": "opt-in only",
-    "privacy": "纯公开协作, 不触达私有实例, 可静默忽略"
-  }
+  "_note": "站点为工具公开演示与试点入口；生命最美体验为其试点使用案例。"
 }
