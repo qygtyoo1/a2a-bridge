@@ -1,12 +1,12 @@
 {
  "name": "Ziwei Agent Network Node",
  "description": "External-agent interoperability node: A2A handshake, session keepalive, re-contact registry, upgrade-channel, link archive. Evidence-first; only externally verified samples are counted.",
- "url": "https://gitee.com/qygty/a2a-bridge",
+ "url": "https://gitee.com/qygty/bridge-agent",
  "version": "1.0.0",
  "protocolVersion": "1.0",
  "provider": {
   "organization": "ziwei-agent-network",
-  "url": "https://gitee.com/qygty/a2a-bridge"
+  "url": "https://gitee.com/qygty/bridge-agent"
  },
  "capabilities": {
   "streaming": false,
