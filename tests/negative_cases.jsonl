@@ -1,4 +1,4 @@
-{"schema_version":"SB-1.0","handshake_id":"hs_bad1","party_a":{"card_ref":"ac_a","subject_type":"agent"},"party_b":{"card_ref":"ac_b","subject_type":"human"},"human_approval":{"a":{"present":true},"b":{"present":false}},"channel":{"channel_id":"ch_bad1","protocol_version":"SB-1.0","created_at":"2026-09-16T00:00:00+08:00"}}
-{"schema_version":"SB-1.0","subject_type":"alien","agent_card_id":"ac_bad2","name":"x","capabilities":["a2a_connect"],"endpoint":"https://x.com","permission_boundary":"y","verify_state":"verified","protocol_version":"SB-1.0"}
+{"schema_version":"A2A-1.0","handshake_id":"hs_bad1","party_a":{"card_ref":"ac_a","subject_type":"agent"},"party_b":{"card_ref":"ac_b","subject_type":"human"},"human_approval":{"a":{"present":true},"b":{"present":false}},"channel":{"channel_id":"ch_bad1","protocol_version":"A2A-1.0","created_at":"2026-09-16T00:00:00+08:00"}}
+{"schema_version":"A2A-1.0","subject_type":"alien","agent_card_id":"ac_bad2","name":"x","capabilities":["a2a_connect"],"endpoint":"https://x.com","permission_boundary":"y","verify_state":"verified","protocol_version":"A2A-1.0"}
 {"schema_version":"SB-0.9","agent_card_id":"ac_bad3","name":"x","capabilities":["a2a_connect"],"endpoint":"https://x.com","permission_boundary":"y","verify_state":"verified","protocol_version":"SB-0.9"}
 {"foo":"bar"}
