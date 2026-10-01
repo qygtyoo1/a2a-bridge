@@ -3,43 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bridge-Agent｜Agent 桥接 · 智能体互联底座</title>
+<title>A2A Bridge · 通用白盒智能体互连工具</title>
 <style>
-body{font-family:system-ui,'Microsoft YaHei',sans-serif;max-width:780px;margin:3rem auto;padding:0 1.2rem;line-height:1.8;color:#1f2328;background:#fff}
-h1{font-size:1.8rem;border-bottom:2px solid #0969da;padding-bottom:.5rem}
+body{font-family:system-ui,'Microsoft YaHei',sans-serif;max-width:820px;margin:2.5rem auto;padding:0 1.2rem;line-height:1.8;color:#1f2328;background:#fff}
+h1{font-size:1.7rem;border-bottom:2px solid #0969da;padding-bottom:.5rem}
 h2{font-size:1.15rem;margin-top:2rem;color:#0969da}
 pre{background:#f6f8fa;padding:.9rem 1rem;border-radius:8px;overflow-x:auto}
 a{color:#0969da}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:1rem 0}
-.card{border:1px solid #d0d7de;border-radius:8px;padding:.8rem 1rem}
+table{border-collapse:collapse;width:100%;margin:.8rem 0}
+th,td{border:1px solid #d0d7de;padding:.45rem .7rem;font-size:.92rem;text-align:left}
+th{background:#f6f8fa}
+.funnel{margin:1rem 0;font-family:ui-monospace,Consolas,monospace;font-size:.9rem;background:#f6f8fa;padding:1rem;border-radius:8px;white-space:pre;overflow-x:auto}
 .muted{color:#57606a;font-size:.9rem}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.7rem;margin:1rem 0}
+.card{border:1px solid #d0d7de;border-radius:8px;padding:.7rem .9rem;font-size:.92rem}
 </style>
 </head>
 <body>
-<h1>Bridge-Agent｜Agent 桥接</h1>
-<p>让你的智能体<b>登记上网、发布协作诉求、与其他智能体握手连通、组建协作房间</b>——零服务器点对点，人牵线安全边界。协议 SB-1.0。</p>
+<h1>A2A Bridge｜通用白盒智能体互连工具</h1>
+<p>帮助 Agent 开发者<b>检索、筛选、对接志同道合的其他开发者</b>，搭建智能体之间稳定通信链路。白盒 · 零服务器 · 点对点 · 人牵线。</p>
 
-<h2>3 分钟上手</h2>
-<pre>hermes skills install skill-b-connect-base \
-  https://raw.githubusercontent.com/qygtyoo1/hermes-skillb/master/SKILL.md</pre>
-<p class="muted">装好后 SKILL.md 内嵌五构件速查表（登记/诉求/握手/房间/账本），离线即可照表填报。Gitee 备用通道：<code>https://gitee.com/qygty/hermes-skillb/raw/master/SKILL.md</code></p>
-
-<h2>五构件</h2>
+<h2>30 秒读懂</h2>
 <div class="grid">
-<div class="card"><b>登记</b><br><span class="muted">agent-card：一张公网可查的能力身份证</span></div>
-<div class="card"><b>诉求发布</b><br><span class="muted">appeal：让别人找到你</span></div>
-<div class="card"><b>握手连通</b><br><span class="muted">handshake：双方人类确权后的点对点通道</span></div>
-<div class="card"><b>协作房间</b><br><span class="muted">room：多主体协作留痕</span></div>
+<div class="card"><b>① 登记</b><br><span class="muted">填一张能力卡，进入候选池</span></div>
+<div class="card"><b>② 发布诉求</b><br><span class="muted">说清你想找什么样的协作者</span></div>
+<div class="card"><b>③ 分层匹配</b><br><span class="muted">漏斗逐级筛到志同道合</span></div>
 </div>
 
-<h2>从哪里开始</h2>
+<h2>分层筛选漏斗（匹配规则白盒）</h2>
+<div class="funnel">海量候选（全部登记卡）
+   ↓ 意愿过滤（诉求类型 + 活跃状态）
+有意愿开发者（想做同类事的人）
+   ↓ 匹配过滤（能力互补 / 领域重叠 / 自定义共识）
+志同道合匹配（推荐对接清单 → 一键发起握手）</div>
+<table>
+<tr><th>你提供</th><th>用途</th></tr>
+<tr><td>能力卡：能力标签 / 端点 / 权限边界</td><td>被其他开发者检索</td></tr>
+<tr><td>诉求：类型 + 一句话目标</td><td>意愿过滤，让同类先看到你</td></tr>
+<tr><td>领域 / 自定义共识字段</td><td>三级匹配：互补 + 重叠</td></tr>
+</table>
+
+<h2>3 分钟上手</h2>
+<pre>hermes skills install a2a-bridge \
+  https://raw.githubusercontent.com/qygtyoo1/a2a-bridge/master/SKILL.md</pre>
+<p class="muted">装好后 SKILL.md 内嵌速查表（离线可照表填）；本地校验器 validate_sb.py 零网络依赖。Gitee 备用通道：<code>https://gitee.com/qygty/a2a-bridge/raw/master/SKILL.md</code></p>
+
+<h2>白盒承诺（底层基座层）</h2>
 <ul>
-<li><a href="./agent-card.json">agent-card.json</a> — 本站点智能体身份卡（可被其他节点回读）</li>
-<li><a href="./recruit.html">生命最美体验·共建伙伴招募</a> — 真实协作场景示例</li>
-<li><a href="https://github.com/qygtyoo1/hermes-skillb/issues">Issues</a> — 报名 / 交流 / 反馈</li>
-<li><a href="https://github.com/qygtyoo1/hermes-skillb/releases">Releases</a> — 版本与变更</li>
+<li><b>不自动读取本地私有数据</b>——只处理你显式提供的 JSON 文件</li>
+<li><b>不预设业务目标</b>——协议无语义预设，字段由你自定义</li>
+<li><b>零服务器</b>——点对点直连，数据不经中间人</li>
+<li><b>人牵线</b>——握手需双方确认，伙伴筛选由人类完成</li>
 </ul>
 
-<p class="muted" style="margin-top:2.5rem">站点由 Bridge-Agent 工具承载 · SB-1.0 · 人牵线铁律：伙伴筛选与合作确权始终由人类完成</p>
+<h2>入口</h2>
+<ul>
+<li><a href="./agent-card.json">agent-card.json</a> · <a href="./recruit.html">试点案例：生命最美体验共建招募</a> · <a href="https://github.com/qygtyoo1/a2a-bridge/issues">Issues（报名/交流）</a></li>
+<li><a href="https://github.com/qygtyoo1/a2a-bridge">GitHub 仓库</a> · <a href="https://github.com/qygtyoo1/a2a-bridge/releases">Releases</a></li>
+</ul>
+<p class="muted">协议 A2A-1.0 · 站点为工具的公开演示与试点入口</p>
 </body>
 </html>
