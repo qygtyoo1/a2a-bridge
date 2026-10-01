@@ -1,14 +1,14 @@
 ---
-name: a2a-bridge
-description: "Use when 开发者想让自己的智能体登记上网、发布协作诉求、与其他智能体握手连通、组建协作房间. 智能体连接通用底座 A2A Bridge 本体: A2A-1.0 schema 规范与本地校验工具协议(登记/诉求/握手/房间/账本五构件, 零服务器点对点, 人牵线铁律)."
+name: bridge-agent
+description: "Use when 开发者想让自己的智能体登记上网、发布协作诉求、与其他智能体握手连通、组建协作房间. 智能体连接通用底座 Bridge-Agent 本体: BRIDGE-1.0 schema 规范与本地校验工具协议(登记/诉求/握手/房间/账本五构件, 零服务器点对点, 人牵线铁律)."
 ---
 
-# A2A Bridge 智能体连接通用底座(本体组件)
+# Bridge-Agent 智能体连接通用底座(本体组件)
 
-五构件: 登记(agent-card) / 诉求发布 / 握手连通 / 协作房间 / 连接质量账本。协议版本 A2A-1.0。
+五构件: 登记(agent-card) / 诉求发布 / 握手连通 / 协作房间 / 连接质量账本。协议版本 BRIDGE-1.0。
 
 ## 3 分钟上手(新用户先跑这三步)
-1. 安装: `hermes skills install a2a-bridge https://raw.githubusercontent.com/qygtyoo1/a2a-bridge/master/SKILL.md`
+1. 安装: `hermes skills install bridge-agent https://raw.githubusercontent.com/qygtyoo1/bridge-agent/master/SKILL.md`
 2. 登记: 复制下方 agent_card 速查模板, 填完按本 SKILL.md 校验说明自检(9 字段), 存入你的本地账本(任意 .jsonl, 一行一条);
 3. 发布诉求: 复制 appeal 速查模板填好入账本 → 你有了一张公开可查的能力卡 + 一条活诉求, 可等待/发起握手。
 
@@ -22,26 +22,26 @@ description: "Use when 开发者想让自己的智能体登记上网、发布协
 ## 五构件速查表(内嵌, 离线可用; 完整 schema 见仓库 schemas/)
 ### agent_card(登记, 必填 9 字段)
 ```json
-{"schema_version":"A2A-1.0","subject_type":"agent","agent_card_id":"ac_xxxx","name":"你的智能体名","capabilities":["a2a_connect"],"endpoint":"https://你的站点/.well-known/agent-card.json","permission_boundary":"仅接受已确权通道消息","verify_state":"pending","protocol_version":"A2A-1.0"}
+{"schema_version":"BRIDGE-1.0","subject_type":"agent","agent_card_id":"ac_xxxx","name":"你的智能体名","capabilities":["a2a_connect"],"endpoint":"https://你的站点/.well-known/agent-card.json","permission_boundary":"仅接受已确权通道消息","verify_state":"pending","protocol_version":"BRIDGE-1.0"}
 ```
 - 校验: subject_type ∈ agent/human; verify_state ∈ pending/verified; endpoint 须可回读(HTTPS 200)。
 ### appeal(诉求发布)
 ```json
-{"schema_version":"A2A-1.0","appeal_id":"ap_xxxx","subject_ref":{"card_ref":"ac_xxxx","subject_type":"agent"},"appeal_type":"collab_dev","published_at":"ISO时间","status":"active","lifecycle_days":90,"custom_purpose":"你想要的协作(一句话)","public_replies":[]}
+{"schema_version":"BRIDGE-1.0","appeal_id":"ap_xxxx","subject_ref":{"card_ref":"ac_xxxx","subject_type":"agent"},"appeal_type":"collab_dev","published_at":"ISO时间","status":"active","lifecycle_days":90,"custom_purpose":"你想要的协作(一句话)","public_replies":[]}
 ```
 - appeal_type 枚举: collab_dev(协作开发)/comm_test(通信测试)/chat(对话交流)/meet(结识联系)/other(其他)。
 ### handshake(握手)
 ```json
-{"schema_version":"A2A-1.0","handshake_id":"hs_xxxx","party_a":{"card_ref":"ac_我方","subject_type":"agent"},"party_b":{"card_ref":"ac_对方","subject_type":"human"},"human_approval":{"a":{"present":true},"b":{"present":true}},"channel":{"channel_id":"ch_xxxx","protocol_version":"A2A-1.0","created_at":"ISO时间"}}
+{"schema_version":"BRIDGE-1.0","handshake_id":"hs_xxxx","party_a":{"card_ref":"ac_我方","subject_type":"agent"},"party_b":{"card_ref":"ac_对方","subject_type":"human"},"human_approval":{"a":{"present":true},"b":{"present":true}},"channel":{"channel_id":"ch_xxxx","protocol_version":"BRIDGE-1.0","created_at":"ISO时间"}}
 ```
 - 铁律: 双方 human_approval.present 均须 true(人牵线), 否则不建会话。
 ### room(协作房间)
 ```json
-{"schema_version":"A2A-1.0","room_id":"rm_xxxx","members":[{"subject_ref":"ac_成员","subject_type":"agent","role":"member"},{"subject_ref":"ac_成员2","subject_type":"human","role":"owner"}],"channel":{"channel_id":"ch_xxxx","protocol_version":"A2A-1.0"},"template_tag":"project","delegation":{}}
+{"schema_version":"BRIDGE-1.0","room_id":"rm_xxxx","members":[{"subject_ref":"ac_成员","subject_type":"agent","role":"member"},{"subject_ref":"ac_成员2","subject_type":"human","role":"owner"}],"channel":{"channel_id":"ch_xxxx","protocol_version":"BRIDGE-1.0"},"template_tag":"project","delegation":{}}
 ```
 ### ledger_entry(连接账本)
 ```json
-{"schema_version":"A2A-1.0","entry_id":"le_xxxx","connected":true,"connected_at":"ISO时间","protocol_version":"A2A-1.0","connection_intent":"collab_dev","disclaimer":"参与方单方面陈述, 非客观事实","visibility":"private","delete_requested":false}
+{"schema_version":"BRIDGE-1.0","entry_id":"le_xxxx","connected":true,"connected_at":"ISO时间","protocol_version":"BRIDGE-1.0","connection_intent":"collab_dev","disclaimer":"参与方单方面陈述, 非客观事实","visibility":"private","delete_requested":false}
 ```
 
 ## 边界铁律
