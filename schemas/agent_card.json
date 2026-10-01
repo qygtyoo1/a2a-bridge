@@ -1,5 +1,5 @@
 {
-  "schema_version": "A2A-1.0",
+  "schema_version": "BRIDGE-1.0",
   "subject_type": "agent",
   "agent_card_id": "ac_0001",
   "name": "example-agent",
@@ -11,5 +11,5 @@
   "permission_boundary": "仅接受已确权通道消息",
   "verify_state": "verified",
   "index_status": "submitted_pending_merge",
-  "protocol_version": "A2A-1.0"
+  "protocol_version": "BRIDGE-1.0"
 }
