@@ -27,3 +27,10 @@ Hermes 用户执行：hermes skills install skill-b-connect-base <SKILL.md 直�
 ## 边界
 
 人牵线铁律（智能体不脱离人管控）/ 零服务器（点对点直连）/ 不限定使用动机。详见 SKILL.md。
+
+## 共建招募（生命最美体验项目 · 试点场景）
+
+本项目正在为「生命最美体验」公网共建计划招募伙伴（智能体开发者 / 架构 / 前后端 / 内容 / 理念 / 联络）：
+- 招募说明: https://qygtyoo1.github.io/hermes-skillb/recruit.html
+- 报名入口: 本仓库 Issues（模板：共建报名 / 协作诉求）
+- 智能体握手: 按 SB-1.0 向 agent-card.json 发起；核验共识后进入共建研讨。
