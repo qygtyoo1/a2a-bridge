@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-SB-1.0 五构件本地校验工具 (validate_sb.py)
+A2A-1.0 五构件本地校验工具 (validate_sb.py)
 
-Skill-B 本体组件的机器可执行校验器: 对「登记(agent_card)/诉求(appeal)/握手(handshake)/
-协作房间(room)/连接账本(ledger_entry)/守护(guard)」六类 SB-1.0 JSON 记录做字段级校验。
+A2A Bridge 本体组件的机器可执行校验器: 对「登记(agent_card)/诉求(appeal)/握手(handshake)/
+协作房间(room)/连接账本(ledger_entry)/守护(guard)」六类 A2A-1.0 JSON 记录做字段级校验。
 
 设计原则(对齐 SKILL.md 边界铁律):
 - 零网络依赖: 默认不做 endpoint 回读, 仅校验格式(HTTPS), 避免安装器挂起类故障(K5 教训);
   需要端点回读时显式加 --check-endpoint。
 - 人牵线铁律: handshake 强制 human_approval.a.present 与 .b.present 均为 true, 否则判失败。
-- 协议版本强制: 所有记录顶层 schema_version 必须 == "SB-1.0"。
+- 协议版本强制: 所有记录顶层 schema_version 必须 == "A2A-1.0"。
 
 用法:
   python validate_sb.py --file <record.json | ledger.jsonl>
@@ -25,7 +25,7 @@ import json
 import sys
 import os
 
-PROTOCOL = "SB-1.0"
+PROTOCOL = "A2A-1.0"
 
 # ---- 枚举约束(与 SKILL.md 速查表 / schemas 对齐) ----
 SUBJECT_TYPES = {"agent", "human"}
@@ -56,7 +56,7 @@ def _iso(ts):
 def validate_agent_card(r):
     e = []
     if r.get("schema_version") != PROTOCOL:
-        _err(e, "schema_version != SB-1.0")
+        _err(e, "schema_version != A2A-1.0")
     if r.get("subject_type") not in SUBJECT_TYPES:
         _err(e, f"subject_type 非法: {r.get('subject_type')!r} (应 ∈ {sorted(SUBJECT_TYPES)})")
     if not isinstance(r.get("agent_card_id"), str) or not r["agent_card_id"].startswith("ac_"):
@@ -73,14 +73,14 @@ def validate_agent_card(r):
     if r.get("verify_state") not in VERIFY_STATES:
         _err(e, f"verify_state 非法: {r.get('verify_state')!r} (应 ∈ {sorted(VERIFY_STATES)})")
     if r.get("protocol_version") != PROTOCOL:
-        _err(e, "protocol_version != SB-1.0")
+        _err(e, "protocol_version != A2A-1.0")
     return e
 
 
 def validate_appeal(r):
     e = []
     if r.get("schema_version") != PROTOCOL:
-        _err(e, "schema_version != SB-1.0")
+        _err(e, "schema_version != A2A-1.0")
     if not isinstance(r.get("appeal_id"), str) or not r["appeal_id"].startswith("ap_"):
         _err(e, "appeal_id 缺失或非 ap_ 前缀")
     sr = r.get("subject_ref", {})
@@ -102,7 +102,7 @@ def validate_appeal(r):
 def validate_handshake(r):
     e = []
     if r.get("schema_version") != PROTOCOL:
-        _err(e, "schema_version != SB-1.0")
+        _err(e, "schema_version != A2A-1.0")
     if not isinstance(r.get("handshake_id"), str) or not r["handshake_id"].startswith("hs_"):
         _err(e, "handshake_id 缺失或非 hs_ 前缀")
     for side in ("a", "b"):
@@ -120,14 +120,14 @@ def validate_handshake(r):
             _err(e, f"human_approval.{side}.present != true (人牵线铁律) -> 拒绝建会话")
     ch = r.get("channel", {})
     if not isinstance(ch, dict) or not isinstance(ch.get("channel_id"), str) or ch.get("protocol_version") != PROTOCOL:
-        _err(e, "channel 结构非法(须 channel_id + protocol_version=SB-1.0)")
+        _err(e, "channel 结构非法(须 channel_id + protocol_version=A2A-1.0)")
     return e
 
 
 def validate_room(r):
     e = []
     if r.get("schema_version") != PROTOCOL:
-        _err(e, "schema_version != SB-1.0")
+        _err(e, "schema_version != A2A-1.0")
     if not isinstance(r.get("room_id"), str) or not r["room_id"].startswith("rm_"):
         _err(e, "room_id 缺失或非 rm_ 前缀")
     members = r.get("members", [])
@@ -140,7 +140,7 @@ def validate_room(r):
                 _err(e, f"members[{i}] 结构非法(须 subject_ref + subject_type + role)")
     ch = r.get("channel", {})
     if not isinstance(ch, dict) or not isinstance(ch.get("channel_id"), str) or ch.get("protocol_version") != PROTOCOL:
-        _err(e, "channel 结构非法(须 channel_id + protocol_version=SB-1.0)")
+        _err(e, "channel 结构非法(须 channel_id + protocol_version=A2A-1.0)")
     if r.get("template_tag") not in TEMPLATE_TAGS:
         _err(e, f"template_tag 非法: {r.get('template_tag')!r}")
     if not isinstance(r.get("delegation"), dict):
@@ -151,7 +151,7 @@ def validate_room(r):
 def validate_ledger_entry(r):
     e = []
     if r.get("schema_version") != PROTOCOL:
-        _err(e, "schema_version != SB-1.0")
+        _err(e, "schema_version != A2A-1.0")
     if not isinstance(r.get("entry_id"), str) or not r["entry_id"].startswith("le_"):
         _err(e, "entry_id 缺失或非 le_ 前缀")
     if not isinstance(r.get("connected"), bool):
@@ -159,7 +159,7 @@ def validate_ledger_entry(r):
     if not _iso(r.get("connected_at", "")):
         _err(e, "connected_at 非 ISO 时间")
     if r.get("protocol_version") != PROTOCOL:
-        _err(e, "protocol_version != SB-1.0")
+        _err(e, "protocol_version != A2A-1.0")
     if r.get("connection_intent") not in CONNECTION_INTENTS:
         _err(e, f"connection_intent 非法: {r.get('connection_intent')!r}")
     if not isinstance(r.get("disclaimer"), str) or not r["disclaimer"].strip():
@@ -174,7 +174,7 @@ def validate_ledger_entry(r):
 def validate_guard(r):
     e = []
     if r.get("schema_version") != PROTOCOL:
-        _err(e, "schema_version != SB-1.0")
+        _err(e, "schema_version != A2A-1.0")
     rl = r.get("rate_limit", {})
     if not isinstance(rl, dict) or not isinstance(rl.get("count"), int):
         _err(e, "rate_limit 结构非法(须 count)")
@@ -235,7 +235,7 @@ def load_records(path):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="SB-1.0 五构件本地校验工具")
+    ap = argparse.ArgumentParser(description="A2A-1.0 五构件本地校验工具")
     ap.add_argument("--file", help="单记录 JSON 或多行 JSONL 账本路径")
     ap.add_argument("--dir", help="目录, 校验其中全部 .json/.jsonl 文件")
     ap.add_argument("--check-endpoint", action="store_true",
