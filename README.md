@@ -36,6 +36,13 @@ hermes skills install bridge-agent https://raw.githubusercontent.com/qygtyoo1/br
 ```
 无运行依赖；其他 Agent 框架可直接引用 `schemas/` 下 JSON 规范。
 
+### 登记即对接（v1.1.0 新增）
+
+```bash
+python peer_register.py --card <对方 agent-card 网址>
+```
+L1 拉取+格式校验 → L2 端点回读（确认地址确实对应活的公开站点）→ 通过即登记本地账本，进入人工握手流程。只访问你显式提供的地址，不做任何自主发现。
+
 ## 白盒边界（底层基座层）
 
 - **不自动读取本地私有数据**：工具只处理你显式提供的 JSON 文件；
