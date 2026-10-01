@@ -1,17 +1,16 @@
 {
  "name": "Ziwei Agent Network Node",
- "description": "External-agent interoperability node: A2A handshake, session keepalive, re-contact registry, upgrade-channel, link archive. Evidence-first; only externally verified samples counted.",
- "url": "https://be3f8643b6a62112-222-247-142-11.serveousercontent.com",
+ "description": "External-agent interoperability node: A2A handshake, session keepalive, re-contact registry, upgrade-channel, link archive. Evidence-first; only externally verified samples are counted.",
+ "url": "https://gitee.com/qygty/a2a-bridge",
  "version": "1.0.0",
  "protocolVersion": "1.0",
  "provider": {
   "organization": "ziwei-agent-network",
-  "url": "https://github.com/qygtyoo1/hermes-skillb"
+  "url": "https://gitee.com/qygty/a2a-bridge"
  },
  "capabilities": {
   "streaming": false,
-  "pushNotifications": false,
-  "stateTransitionHistory": false
+  "pushNotifications": false
  },
  "defaultInputModes": [
   "text"
@@ -23,7 +22,7 @@
   {
    "id": "a2a-handshake",
    "name": "A2A Handshake",
-   "description": "Two-phase handshake: instant + session keepalive verification",
+   "description": "Two-phase handshake: instant handshake + session keepalive verification",
    "tags": [
     "handshake",
     "session"
@@ -32,7 +31,7 @@
   {
    "id": "recontact",
    "name": "Re-contact Channel",
-   "description": "Persistent re-contact anchor reachable anytime for iterative messages",
+   "description": "Persistent re-contact anchor: reachable at any time for iterative messages",
    "tags": [
     "recontact",
     "upgrade-channel"
@@ -41,7 +40,7 @@
   {
    "id": "link-archive",
    "name": "Link Archive",
-   "description": "Station/node/port records archived for verifiable links",
+   "description": "Station / node / port records archived for verifiable communication links",
    "tags": [
     "archive",
     "evidence"
@@ -49,6 +48,6 @@
   }
  ],
  "contact": {
-  "email": "qygtyoo1@users.noreply.github.com"
+  "email": "qygty@gitee.com"
  }
 }
